@@ -29,6 +29,12 @@ namespace FinancialApp.Controllers
         {
             return View();
         }
+        // POST: Transactions/ShowSearchForm
+        public async Task<IActionResult> ShowSearchResults(string SearchCategory)
+        {
+            return View("Index", await _context.Transaction.Where( t => t.Description.Contains
+            (SearchCategory)).ToListAsync());
+        }
 
         // GET: Transactions/Details/5
         public async Task<IActionResult> Details(int? id)
