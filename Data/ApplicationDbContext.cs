@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using FinancialApp.Models;
 
 namespace FinancialApp.Data
 {
@@ -9,5 +10,6 @@ namespace FinancialApp.Data
             : base(options)
         {
         }
+        public DbSet<FinancialApp.Models.Transaction> Transaction { get; set; } = default!;
     }
 }
