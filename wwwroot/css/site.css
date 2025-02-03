@@ -12,6 +12,19 @@ html {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+/*dark mode*/
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --card-bg: #f8f9fa;
+}
+
+.dark-mode {
+    --bg-color: lightgray;
+    --text-color: #ffffff;
+    --card-bg: #282828;
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -19,4 +32,11 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--text-color);
 }
