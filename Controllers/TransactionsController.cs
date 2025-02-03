@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FinancialApp.Data;
 using FinancialApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FinancialApp.Controllers
 {
@@ -55,6 +56,7 @@ namespace FinancialApp.Controllers
         }
 
         // GET: Transactions/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -63,6 +65,7 @@ namespace FinancialApp.Controllers
         // POST: Transactions/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Date,Amount,Description,Category,Type,Account")] Transaction transaction)
@@ -77,6 +80,7 @@ namespace FinancialApp.Controllers
         }
 
         // GET: Transactions/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -95,6 +99,7 @@ namespace FinancialApp.Controllers
         // POST: Transactions/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Date,Amount,Description,Category,Type,Account")] Transaction transaction)
@@ -128,6 +133,7 @@ namespace FinancialApp.Controllers
         }
 
         // GET: Transactions/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -146,6 +152,7 @@ namespace FinancialApp.Controllers
         }
 
         // POST: Transactions/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
