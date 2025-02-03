@@ -70,6 +70,11 @@ namespace FinancialApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Date,Amount,Description,Category,Type,Account")] Transaction transaction)
         {
+            if (transaction.Type != "Income" && transaction.Type != "Expense")
+            {
+                ModelState.AddModelError("Type", "Type must be either Income or Expense");
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(transaction);
@@ -107,6 +112,11 @@ namespace FinancialApp.Controllers
             if (id != transaction.Id)
             {
                 return NotFound();
+            }
+
+            if (transaction.Type != "Income" && transaction.Type != "Expense")
+            {
+                ModelState.AddModelError("Type", "Type must be either Income or Expense");
             }
 
             if (ModelState.IsValid)
