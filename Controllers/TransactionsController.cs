@@ -24,6 +24,11 @@ namespace FinancialApp.Controllers
         {
             return View(await _context.Transaction.ToListAsync());
         }
+        // GET: Transactions/ShowSearchForm
+        public async Task<IActionResult> ShowSearchForm()
+        {
+            return View();
+        }
 
         // GET: Transactions/Details/5
         public async Task<IActionResult> Details(int? id)
