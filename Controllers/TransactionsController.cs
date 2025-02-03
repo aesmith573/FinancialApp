@@ -23,7 +23,7 @@ namespace FinancialApp.Controllers
         // GET: Transactions
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Transaction.ToListAsync());
+            return View(await _context.Transactions.ToListAsync());
         }
         // GET: Transactions/ShowSearchForm
         public async Task<IActionResult> ShowSearchForm()
@@ -33,7 +33,7 @@ namespace FinancialApp.Controllers
         // POST: Transactions/ShowSearchForm
         public async Task<IActionResult> ShowSearchResults(string SearchCategory)
         {
-            return View("Index", await _context.Transaction.Where( t => t.Description.Contains
+            return View("Index", await _context.Transactions.Where( t => t.Description.Contains
             (SearchCategory)).ToListAsync());
         }
 
@@ -45,7 +45,7 @@ namespace FinancialApp.Controllers
                 return NotFound();
             }
 
-            var transaction = await _context.Transaction
+            var transaction = await _context.Transactions
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (transaction == null)
             {
@@ -88,7 +88,7 @@ namespace FinancialApp.Controllers
                 return NotFound();
             }
 
-            var transaction = await _context.Transaction.FindAsync(id);
+            var transaction = await _context.Transactions.FindAsync(id);
             if (transaction == null)
             {
                 return NotFound();
@@ -141,7 +141,7 @@ namespace FinancialApp.Controllers
                 return NotFound();
             }
 
-            var transaction = await _context.Transaction
+            var transaction = await _context.Transactions
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (transaction == null)
             {
@@ -157,10 +157,10 @@ namespace FinancialApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var transaction = await _context.Transaction.FindAsync(id);
+            var transaction = await _context.Transactions.FindAsync(id);
             if (transaction != null)
             {
-                _context.Transaction.Remove(transaction);
+                _context.Transactions.Remove(transaction);
             }
 
             await _context.SaveChangesAsync();
@@ -169,7 +169,7 @@ namespace FinancialApp.Controllers
 
         private bool TransactionExists(int id)
         {
-            return _context.Transaction.Any(e => e.Id == id);
+            return _context.Transactions.Any(e => e.Id == id);
         }
     }
 }

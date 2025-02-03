@@ -10,6 +10,6 @@ namespace FinancialApp.Data
             : base(options)
         {
         }
-        public DbSet<FinancialApp.Models.Transaction> Transaction { get; set; } = default!;
+        public DbSet<Transaction> Transactions { get; set; } = default!;
     }
 }

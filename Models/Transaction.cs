@@ -1,4 +1,7 @@
-﻿namespace FinancialApp.Models
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace FinancialApp.Models
 {
     public class Transaction
     {
