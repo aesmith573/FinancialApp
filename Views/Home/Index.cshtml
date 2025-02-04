@@ -3,7 +3,7 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4 mb-5">Welcome</h1>
 </div>
 
 <div class="row">
@@ -33,7 +33,7 @@
     </div>
 </div>
 
-<h3>💰 Income vs. Expenses</h3>
+<h3>Total Income and Expenses</h3>
 <canvas id="financialChart"></canvas>
 <script>
     var ctx = document.getElementById('financialChart').getContext('2d');
@@ -46,6 +46,12 @@
                 data: [@Model.TotalIncome, @Model.TotalExpenses],
                 backgroundColor: ['#28a745', '#dc3545']
             }]
+        },
+                options: {
+            plugins: {
+                legend: {
+                    display: false}
+            },
         }
     });
 </script>
