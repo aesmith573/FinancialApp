@@ -20,7 +20,7 @@ html {
 }
 
 .dark-mode {
-    --bg-color: lightgray;
+    --bg-color: #282828;
     --text-color: #ffffff;
     --card-bg: #282828;
 }
@@ -38,5 +38,4 @@ body {
 
 .card {
     background-color: var(--card-bg);
-    border: 1px solid var(--text-color);
 }
