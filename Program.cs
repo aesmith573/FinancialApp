@@ -1,4 +1,4 @@
-﻿using FinancialApp.Data;
+using FinancialApp.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
