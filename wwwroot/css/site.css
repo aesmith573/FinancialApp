@@ -12,17 +12,24 @@ html {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-/*dark mode*/
+/*light*/
 :root {
     --bg-color: #ffffff;
     --text-color: #000000;
     --card-bg: #f8f9fa;
+    --navbar-bg: #ffffff;
+    --table-bg: #ffffff;
+    --table-text: #000000;
 }
 
+/*dark*/
 .dark-mode {
     --bg-color: #282828;
     --text-color: #ffffff;
     --card-bg: #282828;
+    --navbar-bg: #222222;
+    --table-bg: #333333;
+    --table-text: #ffffff;
 }
 
 html {
@@ -38,4 +45,22 @@ body {
 
 .card {
     background-color: var(--card-bg);
+}
+
+.navbar {
+    background-color: var(--navbar-bg);
+    color: var(--text-color);
+}
+
+.table {
+    background-color: var(--table-bg);
+    color: var(--table-text);
+}
+
+.table th, .table td {
+    color: var(--table-text);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.05);
 }
